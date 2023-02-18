@@ -101,7 +101,7 @@ function playRound(playerSelection, computerSelection) {
 
 /* this game is best of 5 so the player with highest points at the end of 5 rounds will win , and if there is a tie then there will be additional rounds until the tie is broken or until the user wishes to not proceed any further. */
 //main game function
-function game() {
+function playGame() {
   for (let i = 0; i < 5; i++) {
     playRound();
   }
@@ -109,11 +109,11 @@ function game() {
     console.log("Computer Won the game");
   } else if (computerScore == playerScore) {
     console.log("It's a tie !");
-    let playToBreakTie = prompt(
+    let tieBreakerPrompt = prompt(
       "Would you like to play another round to break the tie?"
     );
-    if (playToBreakTie.toUpperCase() == "YES") {
-      gameTieBreaker();
+    if (tieBreakerPrompt.toUpperCase() == "YES") {
+      playToBreakTie();
     } else {
       console.log("Just deal with the game ending in a tie then.");
     }
@@ -123,14 +123,14 @@ function game() {
 }
 
 //tie breaking function if a tie occurs at the end of 5 rounds.
-function gameTieBreaker() {
+function playToBreakTie() {
   playRound();
   if (computerScore == playerScore) {
-    let playToBreakTie = prompt(
+    let tieBreakerPrompt = prompt(
       "IT'S A TIE AGAIN !! Would you like to play another round to break the tie?"
     );
-    if (playToBreakTie.toUpperCase() == "YES") {
-      gameTieBreaker();
+    if (tieBreakerPrompt.toUpperCase() == "YES") {
+      playToBreakTie();
     } else {
       console.log("Just deal with the game ending in a tie then.");
     }
@@ -144,4 +144,4 @@ function gameTieBreaker() {
   }
 }
 
-game();
+playGame();
