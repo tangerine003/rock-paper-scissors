@@ -1,0 +1,60 @@
+body {
+  background-color: #ffe3db;
+}
+div,
+.score {
+  font-size: 20px;
+  font-weight: bold;
+  /* white-space: pre; */
+}
+
+button {
+  font-family: "Autour One";
+  font-size: 20px;
+  font-weight: bold;
+  color: #73512e;
+  background-color: #ffe3db;
+  margin-left: auto;
+  margin-right: auto;
+  height: 55px;
+  width: auto;
+}
+
+/* .button-container {
+  display: flex;
+   justify-content: space-around; 
+} */
+
+.ab {
+  display: flex;
+  /* flex-direction: column;
+  align-items: center; */
+}
+
+/* img {
+  width: 60%;
+  height: auto;
+}
+ */
+
+.buttons {
+  display: flex;
+  /* justify-content: flex-start; */
+}
+
+.sign-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+img {
+  width: 280px;
+  height: auto;
+}
+
+.container {
+  white-space: pre;
+  font-family: "Autour One";
+  color: #73512e;
+}
