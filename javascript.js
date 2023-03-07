@@ -1,13 +1,3 @@
-/* RULES: 
-- game consists of two players , computer and the user . 
-- computer will  output out a random choice at the count of 4 ( rock, paper, scissors,shoot) and the user will have to press enter at the same time.
-- if one player chooses rock and the other user chooses scissors, then the player who chose rock will get a point.
-- if one player chooses rock and the other user chooses paper, then the player who chose paper will get a point.
-- if one player chooses paper and the other user chooses scissors, then the player who chose scissors get a point.
-- if both the players have the same choice then no one gets a point.
-- this game is best of 5 so the player with highest points at the end of 5 rounds will win , and if there is a tie then there will be additional rounds until the tie is broken or until the user wishes to not proceed any further.
-*/
-
 /* IMPLEMENTATION */
 /* - game consists of two players , computer and the user .*/
 
@@ -27,17 +17,16 @@ function getComputerChoice() {
   }
 }
 
-let computerScore = 0,
-  playerScore = 0;
-
 /* - if one player chooses rock and the other user chooses scissors, then the player who chose rock will get a point.
   - if one player chooses rock and the other user chooses paper, then the player who chose paper will get a point.
   - if one player chooses paper and the other user chooses scissors, then the player who chose scissors get a point.
   - if both the players have the same choice then no one gets a point. */
 function playRound(playerSelection, computerSelection) {
+  choiceResultContainer.insertBefore(catImage, choiceResultDiv);
+
   if (!(playerScore == 5 || computerScore == 5)) {
     computerSelection = getComputerChoice();
-    //playerSelection = prompt("User , please enter your selection");
+
     if (this.classList.value == "rock") {
       playerSelection = "rock";
     }
@@ -47,21 +36,16 @@ function playRound(playerSelection, computerSelection) {
     if (this.classList.value == "scissors") {
       playerSelection = "scissors";
     }
-    /*  div.textContent =
-    "computer's choice is " +
-    computerSelection +
-    "\n" +
-    "Your choice is " +
-    playerSelection;
- */
-    container.textContent = `Computer's choice is ${computerSelection}.
-Your choice is ${playerSelection}`;
+
+    compChoice.textContent = `Computer's choice is ${computerSelection}`;
+    playerChoice.textContent = `Your choice is ${playerSelection}`;
+    choiceDisplay.appendChild(compChoice);
+    choiceDisplay.appendChild(playerChoice);
+
     //both players choose same value
     if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
       conclusion.textContent = "It's a tie.";
-      container.appendChild(conclusion);
-      score.textContent = `Score is Computer: ${computerScore} and Player: ${playerScore}`;
-      container.appendChild(score);
+      choiceResultDiv.appendChild(conclusion);
     }
 
     //one player chooses rock and the other chooses scissors ,the one who chose rock will win
@@ -73,15 +57,13 @@ Your choice is ${playerSelection}`;
     ) {
       if (playerSelection.toUpperCase() == "ROCK") {
         conclusion.textContent = "Player won this round.";
-        container.appendChild(conclusion);
+        choiceResultDiv.appendChild(conclusion);
         ++playerScore;
       } else {
         conclusion.textContent = "Computer won this round";
-        container.appendChild(conclusion);
+        choiceResultDiv.appendChild(conclusion);
         ++computerScore;
       }
-      score.textContent = `Score is Computer: ${computerScore} and Player: ${playerScore}`;
-      container.appendChild(score);
     }
 
     //one player chooses rock and the other  chooses paper ,the one who chose paper will win
@@ -93,15 +75,13 @@ Your choice is ${playerSelection}`;
     ) {
       if (playerSelection.toUpperCase() == "PAPER") {
         conclusion.textContent = "Player won this round.";
-        container.appendChild(conclusion);
+        choiceResultDiv.appendChild(conclusion);
         ++playerScore;
       } else {
         conclusion.textContent = "Computer won this round";
-        container.appendChild(conclusion);
+        choiceResultDiv.appendChild(conclusion);
         ++computerScore;
       }
-      score.textContent = `Score is Computer: ${computerScore} and Player: ${playerScore}`;
-      container.appendChild(score);
     }
 
     //one player chooses paper and the other  chooses scissors ,the one who chose scissors will win
@@ -113,47 +93,80 @@ Your choice is ${playerSelection}`;
     ) {
       if (playerSelection.toUpperCase() == "SCISSORS") {
         conclusion.textContent = "Player won this round.";
-        container.appendChild(conclusion);
+        choiceResultDiv.appendChild(conclusion);
         ++playerScore;
       } else {
         conclusion.textContent = "Computer won this round";
-        container.appendChild(conclusion);
+        choiceResultDiv.appendChild(conclusion);
         ++computerScore;
       }
-      score.textContent = `Score is Computer: ${computerScore} and Player: ${playerScore}`;
-      container.appendChild(score);
     }
+    score.removeChild(compScore);
+    score.removeChild(plyScore);
+    compScore.textContent = `Computer: ${computerScore}`;
+    plyScore.textContent = `Player: ${playerScore}`;
+    score.appendChild(compScore);
+    score.appendChild(plyScore);
+    console.log(`Computer: ${computerScore}`);
+    console.log(`Player: ${playerScore}`);
   } else if (playerScore == 5) {
+    choiceDisplay.removeChild(compChoice);
+    choiceDisplay.removeChild(playerChoice);
+    choiceResultDiv.removeChild(conclusion);
     finalResult.textContent = "You won!! Computer lost!! ";
-    container.appendChild(finalResult);
+    choiceResultDiv.appendChild(finalResult);
+    choiceResultDiv.appendChild(playAgainButton);
   } else {
+    choiceDisplay.removeChild(compChoice);
+    choiceDisplay.removeChild(playerChoice);
+    choiceResultDiv.removeChild(conclusion);
     finalResult.textContent = "Computer won!! You lost!! ";
-    container.appendChild(finalResult);
+    choiceResultDiv.appendChild(finalResult);
+    choiceResultDiv.appendChild(playAgainButton);
   }
 }
 
-/* this game is best of 5 so the player with highest points at the end of 5 rounds will win , and if there is a tie then there will be additional rounds until the tie is broken or until the user wishes to not proceed any further. */
-//main game function
-/* function playGame() {
-  playRound();
-} */
-
-//tie breaking function if a tie occurs at the end of 5 rounds.
-
-//playGame();
+let computerScore = 0,
+  playerScore = 0;
 
 const buttons = document.querySelectorAll("button");
-const container = document.querySelector(".container");
-//const div = document.querySelector("div.result");
+
+const scoreContainer = document.querySelector(".score-container");
 
 const conclusion = document.createElement("div");
 conclusion.classList.add("conclusion");
 
 const score = document.createElement("div");
-score.classList.add("score");
+score.classList.add("actual-score");
+
+const compScore = document.createElement("div");
+const plyScore = document.createElement("div");
+compScore.textContent = `Computer: ${computerScore}`;
+plyScore.textContent = `Player: ${playerScore}`;
+
+score.appendChild(compScore);
+score.appendChild(plyScore);
+scoreContainer.appendChild(score);
+
+const choiceDisplay = document.querySelector(".choice-display");
+const compChoice = document.createElement("div");
+const playerChoice = document.createElement("div");
+
+const choiceResultDiv = document.querySelector(".choice-and-result > div");
+
+const playAgainButton = document.createElement("button");
+playAgainButton.textContent = "PLAY AGAIN";
+playAgainButton.setAttribute("onclick", "window.location.href='./index.html';");
+
+const choiceResultContainer = document.querySelector(".choice-and-result");
+const catImage = document.createElement("img");
+score.classList.add("cat");
+catImage.setAttribute("src", "./imgs/cat_school_new3.png");
+catImage.setAttribute("height", "170");
 
 const finalResult = document.createElement("div");
 finalResult.classList.add("final-result");
+
 buttons.forEach((button) => {
   button.addEventListener("click", playRound);
 });
