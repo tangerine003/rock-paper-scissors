@@ -1,60 +1,101 @@
-body {
+/* correct */
+* {
   background-color: #ffe3db;
-}
-div,
-.score {
-  font-size: 20px;
-  font-weight: bold;
-  /* white-space: pre; */
-}
-
-button {
+  box-sizing: border-box;
   font-family: "Autour One";
   font-size: 20px;
   font-weight: bold;
   color: #73512e;
-  background-color: #ffe3db;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+/* seems correct */
+button {
+  /* outline: 2px solid red; */
   height: 55px;
-  width: auto;
 }
 
-/* .button-container {
+/* seems correct */
+.main-container {
   display: flex;
-   justify-content: space-around; 
-} */
-
-.ab {
-  display: flex;
-  /* flex-direction: column;
-  align-items: center; */
+  padding: 59px 0px;
+  max-width: 85%; /* seems correct */
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+  justify-content: space-between;
+  /* flex-wrap: wrap;
+  align-content: space-between; */
 }
 
-/* img {
-  width: 60%;
-  height: auto;
-}
- */
-
+/* seems correct but */
 .buttons {
   display: flex;
-  /* justify-content: flex-start; */
+  gap: 25px; /* seems correct */
+  flex: 0 1 0; /* dk */
 }
 
+/* seems correct */
 .sign-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+  align-items: center;
+  flex-shrink: 1;
 }
 
-img {
-  width: 280px;
-  height: auto;
-}
-
+/* seems correct but */
 .container {
-  white-space: pre;
-  font-family: "Autour One";
-  color: #73512e;
+  padding-left: 50px; /* not sure */
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+  flex: 0 1 0; /* dk */
+}
+
+/* seems correct */
+.actual-score {
+  display: flex;
+  gap: 48px;
+}
+
+/* seems correct */
+.score-container {
+  border: 5px solid #73512e;
+  width: 336px;
+  padding: 10px 12px;
+}
+
+/* seems correct */
+img.cat {
+  height: 170px;
+  width: auto;
+}
+
+/* seems correct */
+.choice-and-result {
+  display: flex;
+  gap: 30px;
+}
+
+/* seems correct */
+.choice-and-result > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* seems correct */
+.score-title {
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 25px;
+}
+
+@media (max-width: 1186px) {
+  .main-container {
+    flex-direction: column;
+    gap: 100px;
+    max-width: 65%;
+  }
 }
