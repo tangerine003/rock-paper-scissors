@@ -1,4 +1,3 @@
-/* correct */
 * {
   background-color: #ffe3db;
   box-sizing: border-box;
@@ -8,33 +7,27 @@
   color: #73512e;
 }
 
-/* seems correct */
 button {
   /* outline: 2px solid red; */
   height: 55px;
 }
 
-/* seems correct */
 .main-container {
   display: flex;
   padding: 59px 0px;
-  max-width: 85%; /* seems correct */
+  max-width: 85%;
   margin-right: auto;
   margin-left: auto;
   align-items: center;
   justify-content: space-between;
-  /* flex-wrap: wrap;
-  align-content: space-between; */
 }
 
-/* seems correct but */
 .buttons {
   display: flex;
-  gap: 25px; /* seems correct */
-  flex: 0 1 0; /* dk */
+  gap: 25px;
+  flex: 0 1 0;
 }
 
-/* seems correct */
 .sign-container {
   display: flex;
   flex-direction: column;
@@ -43,49 +36,42 @@ button {
   flex-shrink: 1;
 }
 
-/* seems correct but */
 .container {
-  padding-left: 50px; /* not sure */
+  padding-left: 50px;
   display: flex;
   flex-direction: column;
   gap: 60px;
   align-items: center;
-  flex: 0 1 0; /* dk */
+  flex: 0 1 0;
 }
 
-/* seems correct */
 .actual-score {
   display: flex;
   gap: 48px;
 }
 
-/* seems correct */
 .score-container {
   border: 5px solid #73512e;
   width: 336px;
   padding: 10px 12px;
 }
 
-/* seems correct */
 img.cat {
   height: 170px;
   width: auto;
 }
 
-/* seems correct */
 .choice-and-result {
   display: flex;
   gap: 30px;
 }
 
-/* seems correct */
 .choice-and-result > div {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* seems correct */
 .score-title {
   font-weight: bolder;
   font-style: italic;
