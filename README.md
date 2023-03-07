@@ -16,4 +16,5 @@ RULES:
 Images Used:
 
 -Images of paw signs of rock paper scisscors game : https://www.vecteezy.com/vector-art/693121-paw-sign-of-rock-paper-scissors-game
+
 -Cat image : https://www.freepik.com/free-vector/set-funny-cats-school-studying-teaching_13500110.htm#page=2&query=reading%20cat&position=30&from_view=search&track=ais
